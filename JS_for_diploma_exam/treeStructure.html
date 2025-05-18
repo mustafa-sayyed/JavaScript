@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .nested {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+      .caret {
+        cursor: pointer;
+        user-select: none;
+      }
+      .caret::before {
+        content: "\25B6";
+        color: #000;
+        margin-right: 5px;
+      }
+      .caret-down::before {
+        transform: rotate(90deg);
+      }
+      ul {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="top">
+      <span class="caret">India</span>
+      <ul class="nested">
+        <li>Punjab</li>
+        <li>Delhi</li>
+        <li>UP</li>
+        <li><span class="caret">Maharashtra</span>
+          <ul class="nested">
+            <li>Mumbai</li>
+            <li>Pune</li>
+            <li><span class="caret">Solapur</span>
+              <ul class="nested">
+                <li>Solapur North</li>
+                <li>Solapur South</li>
+                <li>Akkalkot</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </ul>
+
+    <script>
+      let carets = document.getElementsByClassName("caret");
+      console.log(carets);
+      for (let i = 0; i < carets.length; i++) {
+        carets[i].addEventListener("click", () => {
+          carets[i].nextElementSibling.classList.toggle("active");
+          carets[i].classList.toggle("caret-down");
+        });
+      }
+    </script>
+  </body>
+</html>

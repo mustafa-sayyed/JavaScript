@@ -30,5 +30,6 @@ const product = {
     discount: "5%",
     isDeal: true
 }
-
+product.discount = "50%"
+delete product.discount;
 console.log(product);

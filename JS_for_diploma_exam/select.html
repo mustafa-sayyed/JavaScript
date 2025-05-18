@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select onchange="redirect(this)">
+      <option value="">Select a Website</option>
+      <option value="https://mustafa-sayyed.github.io/text-to-speech-converter">
+        Text to Speech Converter</option
+      >
+      <option value="https://mustafa-sayyed.github.io/password-generator">
+        Password Generator</option
+      >
+      <option value="https://todos-log.vercel.app"> Todo</option>
+      <option value="https://mustafa-sayyed.github.io/currency-converter">
+        Currency Converter</option
+      >
+    </select>
+
+    <select onchange="changeColor(this)">
+        <option value="">Select a color</option>
+        <option value="red">red</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="black">black</option>
+        <option value="yellow">yellow</option>
+    </select>
+
+    <script>
+      const redirect = (element) => {
+        if (element.value) {
+          window.location.href = element.value;
+        }
+      };
+
+      const changeColor = (select) => {
+        document.body.style.backgroundColor = select.value;
+      }
+    </script>
+  </body>
+</html>

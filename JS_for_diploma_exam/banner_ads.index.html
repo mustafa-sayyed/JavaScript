@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #banner {
+        width: 800px;
+        height: 300px;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="" id="link"><img src="" id="banner" /></a>
+
+    <script>
+      let banner = document.getElementById("banner");
+      let link = document.getElementById("link");
+      console.log(banner, banner.src);
+      const bannerImages = [
+        "TajMahalReflection.jpg",
+        "LittleToucanet.jpg",
+        "MontBlancMassif.jpg",
+        "ParalympicsParis.jpg",
+        "QuebecDuck.jpg",
+        "ShiShiBeach.jpg",
+      ];
+      const bannerUrl = [
+        "google.com",
+        "microsoft.com",
+        "facebook.com",
+        "instagram.com",
+        "google.com",
+        "google.com",
+      ];
+      console.log(bannerImages[5]);
+      bannerNo = 0;
+      function rotatebanner() {
+        if (bannerNo >= 6) {
+          bannerNo = 0;
+          console.log("assigned to 0");
+        } else {
+          console.log(bannerNo);
+          link.href = `https://${bannerUrl[bannerNo]}`
+          console.log(link.href);
+          banner.src = `bing images/${bannerImages[bannerNo]}`;
+          bannerNo++;
+        }
+      }
+
+      setInterval(rotatebanner, 1000);
+    </script>
+  </body>
+</html>

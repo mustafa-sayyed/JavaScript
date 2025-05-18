@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td,
+      table {
+        padding: 10px;
+        border: 1px solid;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" id="name" /></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="email" id="email" /></td>
+        </tr>
+        <tr>
+          <td>pincode</td>
+          <td><input type="number" id="pin" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button onclick="submit()">Submit</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function submit() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let pin = document.getElementById("pin").value;
+        if (name == "" || pin == "" || email == "") {
+          alert("Enter correct details");
+        }
+        const pinPattern = /^[4]{1}[0-9]{5}$/;
+        console.log(pinPattern.test(pin));
+        if (pinPattern.test(pin)) {
+          alert("correct pin code");
+        } else {
+          alert("wrong pin code");
+        }
+        document.cookie = "pin code: " + pin + ";";
+        console.log(document.cookie);
+        alert(document.cookie)
+      }
+    </script>
+  </body>
+</html>
